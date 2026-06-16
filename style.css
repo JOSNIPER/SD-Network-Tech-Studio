@@ -383,6 +383,22 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .service-icon { font-size: 2.4rem; }
 .service-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; }
 .service-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
+.service-slogan {
+    display: inline-block; margin-top: 14px; padding: 4px 14px;
+    background: rgba(59,130,246,0.08); color: var(--primary);
+    border-radius: 50px; font-size: 0.8rem; font-weight: 600;
+}
+
+/* ========== About Intro ========== */
+.about-intro {
+    max-width: 800px; margin: 0 auto 48px;
+    text-align: center;
+}
+.about-intro p {
+    color: var(--text-secondary); font-size: 1.05rem; line-height: 1.9;
+    margin-bottom: 14px;
+}
+.about-intro strong { color: var(--text); }
 
 /* ========== Groups ========== */
 .groups-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
@@ -437,6 +453,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 .group-features li:hover { color: var(--text); padding-left: 26px; }
 .group-features li:hover::before { transform: translateX(2px); }
+.group-target {
+    margin-top: 18px; padding: 12px 16px;
+    background: rgba(59,130,246,0.06); border-radius: var(--radius-sm);
+    font-size: 0.85rem; color: var(--text-muted);
+    border-left: 3px solid var(--primary);
+}
 
 /* ========== Timeline / Honors ========== */
 .timeline { position: relative; max-width: 800px; margin: 0 auto; }
@@ -476,6 +498,11 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     transition: all 0.4s;
 }
 .honor-card:hover { box-shadow: var(--shadow-md); transform: translateX(4px); }
+.honor-card-featured { border-color: var(--primary); }
+.honor-card-featured .honor-tag {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #fff;
+}
 .honor-tag {
     display: inline-block; padding: 4px 12px;
     background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(6,182,212,0.1));
@@ -553,6 +580,55 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .platform-link:hover { color: #fff; transform: translateY(-2px); }
 .platform-link span { position: relative; z-index: 1; }
 .platform-icon { font-size: 1.2rem; }
+
+/* ========== Culture ========== */
+.culture-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.culture-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px 24px; text-align: center;
+    transition: all 0.4s;
+}
+.culture-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.culture-emoji { font-size: 2.4rem; display: block; margin-bottom: 12px; }
+.culture-card h4 { font-weight: 700; margin-bottom: 8px; }
+.culture-card p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
+
+/* ========== Recruit Flow ========== */
+.cta-flow { margin-bottom: 24px; text-align: left; }
+.cta-flow h4 { font-weight: 700; margin-bottom: 14px; }
+.flow-steps { display: flex; flex-direction: column; gap: 10px; }
+.flow-step {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px; background: var(--bg-alt);
+    border-radius: var(--radius-sm); font-size: 0.9rem;
+    transition: all 0.3s;
+}
+.flow-step:hover { background: rgba(59,130,246,0.08); transform: translateX(4px); }
+.flow-num {
+    width: 28px; height: 28px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700;
+}
+.cta-expect { margin-bottom: 24px; text-align: left; }
+.cta-expect h4 { font-weight: 700; margin-bottom: 12px; }
+.expect-list { display: flex; flex-direction: column; gap: 8px; }
+.expect-list li { font-size: 0.9rem; color: var(--text-secondary); }
+
+/* ========== Repair Scope ========== */
+.repair-scope {
+    margin-top: 36px; text-align: center;
+}
+.repair-scope h4 { font-weight: 700; margin-bottom: 16px; }
+.scope-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.scope-tag {
+    padding: 10px 20px; background: var(--bg-card);
+    border: 1px solid var(--border); border-radius: 50px;
+    font-size: 0.9rem; color: var(--text-secondary);
+    transition: all 0.3s;
+}
+.scope-tag:hover { border-color: var(--primary); color: var(--primary); }
 
 /* ========== Repair ========== */
 .repair-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
@@ -733,12 +809,24 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     .platform-links { grid-template-columns: 1fr 1fr; gap: 8px; }
     .platform-link { padding: 12px 14px; font-size: 0.85rem; }
 
+    /* Culture */
+    .culture-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .culture-card { padding: 22px 16px; }
+    .culture-emoji { font-size: 2rem; }
+
+    /* Recruit Flow */
+    .flow-step { padding: 8px 12px; font-size: 0.85rem; }
+    .flow-num { width: 24px; height: 24px; font-size: 0.7rem; }
+    .expect-list li { font-size: 0.85rem; }
+
     /* Repair */
     .repair-grid { grid-template-columns: 1fr; gap: 16px; }
     .repair-card { padding: 28px 20px; }
     .repair-icon-wrap { width: 60px; height: 60px; }
     .repair-icon { font-size: 1.6rem; }
     .repair-value { font-size: 1.1rem; }
+    .scope-tags { flex-direction: column; align-items: center; }
+    .scope-tag { font-size: 0.85rem; text-align: left; }
 
     /* Footer */
     .footer { padding: 40px 0 20px; }
@@ -769,5 +857,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     .timeline-year { font-size: 1.1rem; }
     .honor-awards { flex-direction: column; align-items: flex-start; }
     .platform-links { grid-template-columns: 1fr; }
+    .culture-grid { grid-template-columns: 1fr; }
+    .about-intro p { font-size: 0.95rem; }
     .qr-box { width: 120px; height: 120px; }
 }
