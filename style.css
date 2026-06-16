@@ -586,7 +586,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 [data-theme="dark"] .award-bronze { background: linear-gradient(135deg, #831843, #9d174d); color: #fce7f3; }
 
 /* ========== Recruit ========== */
-.recruit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+.recruit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: stretch; }
 .recruit-item {
     display: flex; gap: 18px; padding: 22px;
     background: var(--bg-card); border: 1px solid var(--border);
