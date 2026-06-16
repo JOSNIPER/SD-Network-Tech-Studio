@@ -689,8 +689,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .scope-tag:hover { border-color: var(--primary); color: var(--primary); }
 
 /* ========== Repair ========== */
-.repair-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.repair-grid > :last-child { grid-column: 2; }
+.repair-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .repair-card {
     background: var(--bg-card); border: 1px solid var(--border);
     border-radius: var(--radius); padding: 40px 28px; text-align: center;
@@ -875,7 +874,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     .expect-list li { font-size: 0.85rem; }
 
     /* Repair */
-    .repair-grid { grid-template-columns: 1fr; gap: 16px; }
+    .repair-grid { grid-template-columns: 1fr; gap: 14px; }
     .repair-card { padding: 28px 20px; }
     .repair-icon-wrap { width: 60px; height: 60px; }
     .repair-icon { font-size: 1.6rem; }
