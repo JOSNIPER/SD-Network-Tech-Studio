@@ -211,6 +211,23 @@ window.addEventListener('scroll', () => {
     });
 });
 
+/* ========== 荣誉标签页 ========== */
+const honorTabs = document.querySelectorAll('.honor-tab');
+const honorPanels = document.querySelectorAll('.honor-panel');
+
+honorTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        const year = tab.dataset.year;
+        honorTabs.forEach(t => t.classList.remove('active'));
+        honorPanels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('year-' + year).classList.add('active');
+
+        // 移动端滚动到可见位置
+        tab.scrollInto({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    });
+});
+
 /* ========== 回到顶部 ========== */
 const backToTop = document.getElementById('backToTop');
 

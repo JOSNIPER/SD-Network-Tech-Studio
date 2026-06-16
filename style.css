@@ -460,38 +460,31 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     border-left: 3px solid var(--primary);
 }
 
-/* ========== Timeline / Honors ========== */
-.timeline { position: relative; max-width: 800px; margin: 0 auto; }
-.timeline::before {
-    content: ''; position: absolute; left: 84px; top: 0; bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--primary), var(--accent), var(--primary));
-    background-size: 100% 200%;
-    animation: timelineShimmer 4s ease-in-out infinite;
+/* ========== Honor Tabs ========== */
+.honor-tabs { max-width: 860px; margin: 0 auto; }
+.honor-tab-nav {
+    display: flex; gap: 6px; padding: 6px;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); margin-bottom: 24px;
+    overflow-x: auto; scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
 }
-@keyframes timelineShimmer { 50% { background-position: 0 100%; } }
-.timeline-item { display: flex; gap: 36px; margin-bottom: 44px; position: relative; }
-.timeline-year {
-    flex-shrink: 0; width: 68px; padding-top: 4px;
-    font-size: 1.5rem; font-weight: 900;
+.honor-tab-nav::-webkit-scrollbar { display: none; }
+.honor-tab {
+    flex-shrink: 0; padding: 10px 20px;
+    border-radius: var(--radius-sm); font-size: 0.9rem; font-weight: 600;
+    color: var(--text-muted); transition: all 0.3s;
+    white-space: nowrap;
+}
+.honor-tab:hover { color: var(--text); background: var(--bg-alt); }
+.honor-tab.active {
     background: linear-gradient(135deg, var(--primary), var(--accent));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-align: right;
+    color: #fff; box-shadow: 0 2px 10px rgba(59,130,246,0.3);
 }
-.timeline-content { flex: 1; display: flex; flex-direction: column; gap: 16px; }
-.timeline-content::before {
-    content: ''; position: absolute; left: 76px; top: 10px;
-    width: 16px; height: 16px; border-radius: 50%;
-    background: var(--primary);
-    border: 3px solid var(--bg);
-    box-shadow: 0 0 0 4px rgba(59,130,246,0.2), 0 0 20px rgba(59,130,246,0.15);
-    transition: all 0.3s;
-}
-.timeline-item:hover .timeline-content::before {
-    transform: scale(1.3);
-    box-shadow: 0 0 0 6px rgba(59,130,246,0.25), 0 0 30px rgba(59,130,246,0.25);
-}
+.honor-tab-content { display: flex; flex-direction: column; gap: 16px; }
+.honor-panel { display: none; flex-direction: column; gap: 16px; animation: fadeIn 0.4s ease; }
+.honor-panel.active { display: flex; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 .honor-card {
     background: var(--bg-card); border: 1px solid var(--border);
     border-radius: var(--radius); padding: 28px;
@@ -782,15 +775,9 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     .group-icon { font-size: 2rem; }
     .group-bg-icon { font-size: 5rem; }
 
-    /* Timeline */
-    .timeline { padding-left: 0; }
-    .timeline::before { left: 30px; }
-    .timeline-item { flex-direction: column; gap: 12px; padding-left: 60px; }
-    .timeline-year {
-        width: auto; text-align: left; font-size: 1.3rem;
-        position: absolute; left: 0; top: 0;
-    }
-    .timeline-content::before { left: -30px; top: 6px; }
+    /* Honor Tabs */
+    .honor-tab-nav { gap: 4px; padding: 4px; }
+    .honor-tab { padding: 8px 14px; font-size: 0.85rem; }
     .honor-card { padding: 20px; }
     .honor-card h4 { font-size: 1rem; }
     .honor-card p { font-size: 0.9rem; }
@@ -852,9 +839,6 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     .service-card, .group-card, .repair-card { padding: 22px 16px; }
     .group-features li { font-size: 0.85rem; }
     .timeline-item { padding-left: 48px; }
-    .timeline::before { left: 22px; }
-    .timeline-content::before { left: -26px; width: 12px; height: 12px; }
-    .timeline-year { font-size: 1.1rem; }
     .honor-awards { flex-direction: column; align-items: flex-start; }
     .platform-links { grid-template-columns: 1fr; }
     .culture-grid { grid-template-columns: 1fr; }
