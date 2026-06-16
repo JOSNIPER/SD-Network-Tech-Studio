@@ -211,22 +211,26 @@ window.addEventListener('scroll', () => {
     });
 });
 
-/* ========== 荣誉标签页 ========== */
-const honorTabs = document.querySelectorAll('.honor-tab');
-const honorPanels = document.querySelectorAll('.honor-panel');
+/* ========== 时间线拖拽滑动 ========== */
+const timelineWrap = document.querySelector('.timeline-scroll-wrap');
+if (timelineWrap) {
+    let isDown = false, startX, scrollLeft;
 
-honorTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        const year = tab.dataset.year;
-        honorTabs.forEach(t => t.classList.remove('active'));
-        honorPanels.forEach(p => p.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById('year-' + year).classList.add('active');
-
-        // 移动端滚动到可见位置
-        tab.scrollInto({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    timelineWrap.addEventListener('mousedown', e => {
+        isDown = true; startX = e.pageX - timelineWrap.offsetLeft;
+        scrollLeft = timelineWrap.scrollLeft;
     });
-});
+    timelineWrap.addEventListener('mouseleave', () => isDown = false);
+    timelineWrap.addEventListener('mouseup', () => isDown = false);
+    timelineWrap.addEventListener('mousemove', e => {
+        if (!isDown) return; e.preventDefault();
+        const x = e.pageX - timelineWrap.offsetLeft;
+        timelineWrap.scrollLeft = scrollLeft - (x - startX) * 1.5;
+    });
+
+    // 默认滚动到最新年份（右侧）
+    timelineWrap.scrollLeft = timelineWrap.scrollWidth;
+}
 
 /* ========== 回到顶部 ========== */
 const backToTop = document.getElementById('backToTop');
