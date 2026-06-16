@@ -689,7 +689,8 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .scope-tag:hover { border-color: var(--primary); color: var(--primary); }
 
 /* ========== Repair ========== */
-.repair-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
+.repair-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.repair-grid > :last-child { grid-column: 2; }
 .repair-card {
     background: var(--bg-card); border: 1px solid var(--border);
     border-radius: var(--radius); padding: 40px 28px; text-align: center;
