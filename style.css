@@ -321,11 +321,11 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 /* ========== Section 通用 ========== */
 .section {
-    padding: 80px 0; position: relative; z-index: 1;
+    padding: 60px 0; position: relative; z-index: 1;
     min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
 }
 .section-alt { background: var(--bg-alt); }
-.section-header { text-align: center; margin-bottom: 56px; }
+.section-header { text-align: center; margin-bottom: 44px; }
 .section-tag {
     display: inline-block; padding: 6px 16px;
     background: rgba(59,130,246,0.08); color: var(--primary);
@@ -916,7 +916,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     .scroll-hint { display: none; }
 
     /* Section */
-    .section { padding: 56px 0; }
+    .section { padding: 44px 0; }
     .section-header { margin-bottom: 36px; }
     .section-title { font-size: 1.6rem; }
     .section-desc { font-size: 0.9rem; }
@@ -1017,7 +1017,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     .hero-title { font-size: 1.7rem; }
     .hero-stats { flex-direction: column; gap: 12px; }
     .stat-number { font-size: 1.6rem; }
-    .section { padding: 44px 0; }
+    .section { padding: 36px 0; }
     .section-title { font-size: 1.4rem; }
     .service-card { padding: 14px 16px; }
     .group-card, .repair-card { padding: 22px 16px; }
