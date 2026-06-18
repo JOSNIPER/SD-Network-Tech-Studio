@@ -232,6 +232,18 @@ if (timelineWrap) {
     timelineWrap.scrollLeft = timelineWrap.scrollWidth;
 }
 
+/* ========== 微信二维码弹窗 ========== */
+const wechatBtn = document.getElementById('wechatBtn');
+const qrModal = document.getElementById('qrModal');
+const qrModalClose = document.getElementById('qrModalClose');
+const qrModalOverlay = qrModal?.querySelector('.qr-modal-overlay');
+
+if (wechatBtn && qrModal) {
+    wechatBtn.addEventListener('click', () => qrModal.classList.add('active'));
+    qrModalClose?.addEventListener('click', () => qrModal.classList.remove('active'));
+    qrModalOverlay?.addEventListener('click', () => qrModal.classList.remove('active'));
+}
+
 /* ========== 回到顶部 ========== */
 const backToTop = document.getElementById('backToTop');
 

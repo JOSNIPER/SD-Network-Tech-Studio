@@ -675,6 +675,37 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .expect-list { display: flex; flex-direction: column; gap: 12px; }
 .expect-list li { font-size: 1rem; color: var(--text-secondary); line-height: 1.6; }
 
+/* ========== QR Modal ========== */
+.qr-modal {
+    position: fixed; inset: 0; z-index: 200;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s;
+}
+.qr-modal.active { opacity: 1; pointer-events: auto; }
+.qr-modal-overlay {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+}
+.qr-modal-content {
+    position: relative; z-index: 1;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 36px;
+    text-align: center; max-width: 320px; width: 90%;
+    transform: scale(0.9); transition: transform 0.3s;
+}
+.qr-modal.active .qr-modal-content { transform: scale(1); }
+.qr-modal-close {
+    position: absolute; top: 12px; right: 16px;
+    font-size: 1.2rem; color: var(--text-muted);
+    transition: color 0.2s;
+}
+.qr-modal-close:hover { color: var(--text); }
+.qr-modal-content h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
+.qr-modal-content p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
+.qr-modal-img { width: 100%; max-width: 240px; border-radius: var(--radius-sm); margin: 0 auto; }
+
 /* ========== Repair Scope ========== */
 .repair-scope {
     margin-top: 36px; text-align: center;
