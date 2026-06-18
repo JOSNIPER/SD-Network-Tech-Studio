@@ -572,7 +572,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 .stl-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .stl-card:hover::before { transform: scaleY(1); }
-.stl-card-hl { border-color: var(--primary); }
+.stl-card-hl { border-color: var(--border); }
 .stl-card-hl::before { transform: scaleY(1); }
 .stl-tag {
     display: inline-block; padding: 2px 8px;
