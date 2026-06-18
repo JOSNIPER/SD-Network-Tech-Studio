@@ -244,6 +244,17 @@ if (wechatBtn && qrModal) {
     qrModalOverlay?.addEventListener('click', () => qrModal.classList.remove('active'));
 }
 
+const qqBtn = document.getElementById('qqBtn');
+const qqModal = document.getElementById('qqModal');
+const qqModalClose = document.getElementById('qqModalClose');
+const qqModalOverlay = qqModal?.querySelector('.qr-modal-overlay');
+
+if (qqBtn && qqModal) {
+    qqBtn.addEventListener('click', () => qqModal.classList.add('active'));
+    qqModalClose?.addEventListener('click', () => qqModal.classList.remove('active'));
+    qqModalOverlay?.addEventListener('click', () => qqModal.classList.remove('active'));
+}
+
 /* ========== 回到顶部 ========== */
 const backToTop = document.getElementById('backToTop');
 

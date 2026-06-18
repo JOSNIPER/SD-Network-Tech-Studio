@@ -465,10 +465,10 @@
                                     <span class="platform-icon">📕</span>
                                     <span>小红书</span>
                                 </a>
-                                <a href="#" class="platform-link">
+                                <button class="platform-link" id="qqBtn">
                                     <span class="platform-icon">🐧</span>
                                     <span>QQ 招新群</span>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -554,6 +554,19 @@
     <button class="back-to-top" id="backToTop" title="回到顶部">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
     </button>
+
+    <!-- QQ招新群二维码弹窗 -->
+    <div class="qr-modal" id="qqModal">
+        <div class="qr-modal-overlay"></div>
+        <div class="qr-modal-content">
+            <button class="qr-modal-close" id="qqModalClose">✕</button>
+            <h4>QQ 招新群</h4>
+            <p>扫描二维码加入招新群</p>
+            <div class="qr-placeholder">
+                <span>二维码待上传</span>
+            </div>
+        </div>
+    </div>
 
     <!-- 微信公众号二维码弹窗 -->
     <div class="qr-modal" id="qrModal">

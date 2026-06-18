@@ -705,6 +705,13 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .qr-modal-content h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
 .qr-modal-content p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
 .qr-modal-img { width: 100%; max-width: 240px; border-radius: var(--radius-sm); margin: 0 auto; }
+.qr-placeholder {
+    width: 240px; height: 240px; margin: 0 auto;
+    background: var(--bg-alt); border: 2px dashed var(--border);
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-muted); font-size: 0.85rem;
+}
 
 /* ========== Repair Scope ========== */
 .repair-scope {
