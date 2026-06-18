@@ -865,11 +865,23 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     .section-title { font-size: 1.6rem; }
     .section-desc { font-size: 0.9rem; }
 
-    /* Services */
-    .services-grid { grid-template-columns: 1fr; gap: 16px; }
-    .service-card { padding: 28px 20px; }
-    .service-icon-wrap { width: 64px; height: 64px; border-radius: 16px; }
-    .service-icon { font-size: 2rem; }
+    /* Services - 手机端横向紧凑卡片 */
+    .services-grid { grid-template-columns: 1fr; gap: 12px; }
+    .service-card {
+        padding: 16px 18px; text-align: left;
+        display: grid; grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        gap: 0 14px; align-items: center;
+    }
+    .service-icon-wrap {
+        width: 50px; height: 50px; border-radius: 14px;
+        grid-row: 1 / 3; margin: 0;
+    }
+    .service-icon { font-size: 1.6rem; }
+    .service-card h3 { font-size: 1rem; margin-bottom: 0; }
+    .service-card p { font-size: 0.82rem; line-height: 1.5; grid-column: 2; }
+    .service-slogan { display: none; }
+    .service-card::before { height: 100%; width: 3px; top: 0; right: auto; left: 0; transform: scaleX(1); transform-origin: top; }
 
     /* Groups */
     .groups-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -944,12 +956,17 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     .stat-number { font-size: 1.6rem; }
     .section { padding: 44px 0; }
     .section-title { font-size: 1.4rem; }
-    .service-card, .group-card, .repair-card { padding: 22px 16px; }
+    .service-card { padding: 14px 16px; }
+    .group-card, .repair-card { padding: 22px 16px; }
     .group-features li { font-size: 0.85rem; }
     .timeline-item { padding-left: 48px; }
     .honor-awards { flex-direction: column; align-items: flex-start; }
     .platform-links { grid-template-columns: 1fr; }
-    .culture-grid { grid-template-columns: 1fr; }
+    .culture-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .culture-card { padding: 18px 12px; }
+    .culture-emoji { font-size: 1.6rem; margin-bottom: 6px; }
+    .culture-card h4 { font-size: 0.88rem; }
+    .culture-card p { font-size: 0.78rem; }
     .about-intro p { font-size: 0.95rem; }
     .qr-box { width: 120px; height: 120px; }
 }
