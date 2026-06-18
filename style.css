@@ -465,7 +465,50 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     border-left: 3px solid var(--primary);
 }
 
-/* ========== Vertical Timeline ========== */
+/* ========== Horizontal Timeline (Desktop) ========== */
+.htimeline { position: relative; padding-top: 40px; }
+.vtimeline-mobile { display: none; }
+.htl-line {
+    position: absolute; top: 48px; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 2px;
+}
+.htl-grid {
+    display: grid; grid-template-columns: repeat(8, 1fr);
+    gap: 12px; position: relative;
+}
+.htl-col {
+    display: flex; flex-direction: column; align-items: center;
+    position: relative;
+}
+.htl-year {
+    font-size: 0.9rem; font-weight: 800; margin-bottom: 10px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.htl-dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--primary); border: 3px solid var(--bg);
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+    z-index: 2; transition: all 0.3s; margin-bottom: 14px;
+    flex-shrink: 0;
+}
+.htl-dot-hl {
+    width: 18px; height: 18px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    box-shadow: 0 0 0 4px rgba(59,130,246,0.25), 0 0 15px rgba(59,130,246,0.2);
+    animation: dotPulse 2.5s ease-in-out infinite;
+}
+@keyframes dotPulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(59,130,246,0.25), 0 0 15px rgba(59,130,246,0.2); }
+    50% { box-shadow: 0 0 0 8px rgba(59,130,246,0.1), 0 0 25px rgba(59,130,246,0.3); }
+}
+.htl-col:hover .htl-dot { transform: scale(1.3); }
+.htl-cards { display: flex; flex-direction: column; gap: 6px; width: 100%; }
+
+/* ========== Vertical Timeline (Mobile) ========== */
 .vtimeline {
     max-width: 800px; margin: 0 auto;
     position: relative; padding: 20px 0;
@@ -501,10 +544,6 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 .vt-left .vt-dot-hl { right: -10px; }
 .vt-right .vt-dot-hl { left: -10px; }
-@keyframes dotPulse {
-    0%, 100% { box-shadow: 0 0 0 4px rgba(59,130,246,0.25), 0 0 15px rgba(59,130,246,0.2); }
-    50% { box-shadow: 0 0 0 8px rgba(59,130,246,0.1), 0 0 25px rgba(59,130,246,0.3); }
-}
 .vt-item:hover .vt-dot { transform: scale(1.3); }
 .vt-year {
     font-size: 1.1rem; font-weight: 800; margin-bottom: 10px;
@@ -809,6 +848,15 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 @media (max-width: 1024px) {
     .groups-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
     .recruit-grid { grid-template-columns: 1fr; }
+    /* 横向时间线压缩 */
+    .htl-grid { gap: 6px; }
+    .htl-year { font-size: 0.78rem; }
+    .htl-dot { width: 12px; height: 12px; }
+    .htl-dot-hl { width: 15px; height: 15px; }
+    .htl-cards { gap: 4px; }
+    .htimeline .stl-card { padding: 8px 10px; }
+    .htimeline .stl-card h4 { font-size: 0.78rem; }
+    .htimeline .stl-card p { font-size: 0.72rem; }
 }
 
 /* ========== 平板 (≤1024px) ========== */
@@ -889,7 +937,9 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     .group-icon { font-size: 2rem; }
     .group-bg-icon { font-size: 5rem; }
 
-    /* Vertical Timeline - 手机端单列 */
+    /* 切换时间线：隐藏横向，显示竖向 */
+    .htimeline { display: none; }
+    .vtimeline-mobile { display: block !important; }
     .vtimeline::before { left: 20px; }
     .vt-item { width: 100%; padding: 0 0 32px 48px; text-align: left !important; }
     .vt-right { margin-left: 0; padding-left: 48px; }
