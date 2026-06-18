@@ -432,7 +432,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
 }
-.group-card-featured { border-color: var(--primary); }
+.group-card-featured { border-color: var(--border); }
 .group-card-featured::before { transform: scaleX(1); }
 .group-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
 .group-icon {
