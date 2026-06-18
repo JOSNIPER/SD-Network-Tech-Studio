@@ -466,10 +466,10 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 /* ========== Horizontal Timeline (Desktop) ========== */
-.htimeline { position: relative; padding-top: 36px; }
+.htimeline { position: relative; padding-top: 0; }
 .vtimeline-mobile { display: none; }
 .htl-line {
-    position: absolute; top: 34px; left: 0; right: 0;
+    position: absolute; top: 42px; left: 0; right: 0;
     height: 3px;
     background: linear-gradient(90deg, var(--primary), var(--accent));
     border-radius: 2px;
@@ -480,28 +480,32 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 .htl-col {
     display: flex; flex-direction: column; align-items: center;
-    position: relative; padding-top: 0;
+    position: relative;
 }
 .htl-year {
-    font-size: 0.9rem; font-weight: 800; margin-bottom: 8px;
+    font-size: 0.9rem; font-weight: 800;
     background: linear-gradient(135deg, var(--primary), var(--accent));
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
+    padding-bottom: 24px; /* 年份底部到线的距离 */
 }
 .htl-dot {
     width: 14px; height: 14px; border-radius: 50%;
-    background: var(--primary); border: 3px solid var(--bg);
+    background: var(--primary);
+    border: 3px solid var(--bg);
     box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
-    z-index: 2; transition: all 0.3s; margin-bottom: 14px;
+    z-index: 2; transition: all 0.3s;
+    margin-bottom: 14px;
     flex-shrink: 0;
-    margin-top: -7px; /* 向上偏移，让圆点中心与线重合 */
+    position: relative;
+    top: -7px; /* 向上偏移半个自身高度，使圆点中心与线对齐 */
 }
 .htl-dot-hl {
     width: 18px; height: 18px;
     background: linear-gradient(135deg, var(--primary), var(--accent));
     box-shadow: 0 0 0 4px rgba(59,130,246,0.25), 0 0 15px rgba(59,130,246,0.2);
     animation: dotPulse 2.5s ease-in-out infinite;
-    margin-top: -9px;
+    top: -9px; /* 18px圆点，偏移9px */
 }
 @keyframes dotPulse {
     0%, 100% { box-shadow: 0 0 0 4px rgba(59,130,246,0.25), 0 0 15px rgba(59,130,246,0.2); }
@@ -853,8 +857,10 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     /* 横向时间线压缩 */
     .htl-grid { gap: 6px; }
     .htl-year { font-size: 0.78rem; }
-    .htl-dot { width: 12px; height: 12px; margin-top: -6px; }
-    .htl-dot-hl { width: 15px; height: 15px; margin-top: -7px; }
+    .htl-dot { width: 12px; height: 12px; top: -6px; }
+    .htl-dot-hl { width: 15px; height: 15px; top: -7px; }
+    .htl-line { top: 38px; }
+    .htl-year { padding-bottom: 20px; }
     .htl-cards { gap: 4px; }
     .htimeline .stl-card { padding: 8px 10px; }
     .htimeline .stl-card h4 { font-size: 0.78rem; }
