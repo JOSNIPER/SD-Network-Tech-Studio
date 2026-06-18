@@ -629,7 +629,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 [data-theme="dark"] .award-bronze { background: linear-gradient(135deg, #831843, #9d174d); color: #fce7f3; }
 
 /* ========== Recruit ========== */
-.recruit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch; }
+.recruit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
 .recruit-item {
     display: flex; gap: 16px; padding: 18px;
     background: var(--bg-card); border: 1px solid var(--border);
@@ -850,28 +850,21 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .back-to-top:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(59,130,246,0.45); }
 
-/* ========== 响应式 ========== */
-@media (max-width: 1024px) {
-    .groups-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
-    .recruit-grid { grid-template-columns: 1fr; }
-    /* 横向时间线压缩 */
-    .htl-grid { gap: 6px; }
-    .htl-year { font-size: 0.78rem; }
-    .htl-dot { width: 12px; height: 12px; top: -6px; }
-    .htl-dot-hl { width: 15px; height: 15px; top: -7px; }
-    .htl-line { top: 38px; }
-    .htl-year { padding-bottom: 20px; }
-    .htl-cards { gap: 4px; }
-    .htimeline .stl-card { padding: 8px 10px; }
-    .htimeline .stl-card h4 { font-size: 0.78rem; }
-    .htimeline .stl-card p { font-size: 0.72rem; }
-}
-
 /* ========== 平板 (≤1024px) ========== */
 @media (max-width: 1024px) {
     .groups-grid { grid-template-columns: 1fr 1fr; }
     .recruit-grid { grid-template-columns: 1fr; }
     .cta-card { position: static; }
+    /* 横向时间线压缩 */
+    .htl-grid { gap: 6px; }
+    .htl-year { font-size: 0.78rem; padding-bottom: 20px; }
+    .htl-dot { width: 12px; height: 12px; top: -6px; }
+    .htl-dot-hl { width: 15px; height: 15px; top: -7px; }
+    .htl-line { top: 38px; }
+    .htl-cards { gap: 6px; }
+    .htimeline .stl-card { padding: 8px 10px; }
+    .htimeline .stl-card h4 { font-size: 0.78rem; }
+    .htimeline .stl-card p { font-size: 0.72rem; }
 }
 
 /* ========== 手机 (≤768px) ========== */
