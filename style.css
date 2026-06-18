@@ -465,46 +465,56 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     border-left: 3px solid var(--primary);
 }
 
-/* ========== S-Shaped Timeline ========== */
-.stimeline { max-width: 900px; margin: 0 auto; }
-.stl-row {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
-    position: relative; padding-top: 28px;
+/* ========== Vertical Timeline ========== */
+.vtimeline {
+    max-width: 800px; margin: 0 auto;
+    position: relative; padding: 20px 0;
 }
-.stl-line {
-    position: absolute; top: 29px; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary), var(--accent));
+.vtimeline::before {
+    content: ''; position: absolute;
+    left: 50%; top: 0; bottom: 0;
+    width: 3px; transform: translateX(-50%);
+    background: linear-gradient(to bottom, var(--primary), var(--accent));
     border-radius: 2px;
 }
-.stl-node { display: flex; flex-direction: column; align-items: center; }
-.stl-dot {
-    width: 18px; height: 18px; border-radius: 50%;
+.vt-item {
+    position: relative; width: 50%;
+    padding: 0 40px 40px;
+}
+.vt-item:last-child { padding-bottom: 0; }
+.vt-left { padding-right: 40px; text-align: right; }
+.vt-right { margin-left: 50%; padding-left: 40px; text-align: left; }
+.vt-dot {
+    position: absolute; top: 8px;
+    width: 16px; height: 16px; border-radius: 50%;
     background: var(--primary); border: 3px solid var(--bg);
     box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
-    position: relative; z-index: 2; transition: all 0.3s;
-    margin-bottom: 10px;
+    z-index: 2; transition: all 0.3s;
 }
-.stl-dot-hl {
-    width: 22px; height: 22px;
+.vt-left .vt-dot { right: -8px; }
+.vt-right .vt-dot { left: -8px; }
+.vt-dot-hl {
+    width: 20px; height: 20px;
     background: linear-gradient(135deg, var(--primary), var(--accent));
     box-shadow: 0 0 0 4px rgba(59,130,246,0.25), 0 0 15px rgba(59,130,246,0.2);
     animation: dotPulse 2.5s ease-in-out infinite;
 }
+.vt-left .vt-dot-hl { right: -10px; }
+.vt-right .vt-dot-hl { left: -10px; }
 @keyframes dotPulse {
     0%, 100% { box-shadow: 0 0 0 4px rgba(59,130,246,0.25), 0 0 15px rgba(59,130,246,0.2); }
-    50% { box-shadow: 0 0 0 6px rgba(59,130,246,0.15), 0 0 25px rgba(59,130,246,0.3); }
+    50% { box-shadow: 0 0 0 8px rgba(59,130,246,0.1), 0 0 25px rgba(59,130,246,0.3); }
 }
-.stl-node:hover .stl-dot { transform: scale(1.3); }
-.stl-year {
-    font-size: 1rem; font-weight: 800;
+.vt-item:hover .vt-dot { transform: scale(1.3); }
+.vt-year {
+    font-size: 1.1rem; font-weight: 800; margin-bottom: 10px;
     background: linear-gradient(135deg, var(--primary), var(--accent));
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text; margin-bottom: 12px;
+    background-clip: text;
 }
-.stl-cards { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+.vt-content { display: flex; flex-direction: column; gap: 8px; }
 .stl-card {
-    display: block; padding: 12px 14px;
+    display: block; padding: 14px 16px;
     background: var(--bg-card); border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     transition: all 0.3s; text-decoration: none;
@@ -537,22 +547,6 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     opacity: 0; transition: opacity 0.3s;
 }
 .stl-card:hover .stl-link { opacity: 1; }
-
-/* S 弯道连接器 */
-.stl-connector {
-    height: 50px; position: relative;
-    display: flex; justify-content: flex-end; padding-right: 0;
-}
-.stl-connector svg {
-    width: 50%; height: 100%;
-}
-.stl-connector svg path {
-    stroke: var(--primary);
-}
-
-/* 第二行反向 */
-.stl-row-rl { direction: rtl; }
-.stl-row-rl .stl-node { direction: ltr; }
 
 .honor-card {
     background: var(--bg-card); border: 1px solid var(--border);
@@ -883,9 +877,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     .group-icon { font-size: 2rem; }
     .group-bg-icon { font-size: 5rem; }
 
-    /* S Timeline */
-    .stl-row { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .stl-connector { height: 40px; }
+    /* Vertical Timeline - 手机端单列 */
+    .vtimeline::before { left: 20px; }
+    .vt-item { width: 100%; padding: 0 0 32px 48px; text-align: left !important; }
+    .vt-right { margin-left: 0; padding-left: 48px; }
+    .vt-left .vt-dot, .vt-right .vt-dot { left: 12px; right: auto; }
+    .vt-left .vt-dot-hl, .vt-right .vt-dot-hl { left: 10px; right: auto; }
     .stl-card { padding: 10px 12px; }
     .stl-card h4 { font-size: 0.82rem; }
     .stl-card p { font-size: 0.75rem; }
