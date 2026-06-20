@@ -244,6 +244,13 @@ if (wechatBtn && qrModal) {
     qrModalOverlay?.addEventListener('click', () => qrModal.classList.remove('active'));
 }
 
+// 线上报修卡片也弹出微信公众号二维码
+const onlineRepair = document.getElementById('onlineRepair');
+if (onlineRepair && qrModal) {
+    onlineRepair.style.cursor = 'pointer';
+    onlineRepair.addEventListener('click', () => qrModal.classList.add('active'));
+}
+
 const qqBtn = document.getElementById('qqBtn');
 const qqModal = document.getElementById('qqModal');
 const qqModalClose = document.getElementById('qqModalClose');
